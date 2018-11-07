@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour {
 
-    public float spawnRate = 1f;
+    public float spawnRate = 2;
 
     public GameObject hex;
 
@@ -21,7 +21,7 @@ public class Spawner : MonoBehaviour {
         if (Time.time >= nextTimeToSpawn)
         {
             Instantiate(hex, Vector3.zero, Quaternion.identity);
-            nextTimeToSpawn = Time.time + 1f / spawnRate;
+            nextTimeToSpawn = Time.time + 2f / spawnRate;
         }
 		
 	}

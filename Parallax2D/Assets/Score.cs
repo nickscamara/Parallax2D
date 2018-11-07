@@ -10,6 +10,8 @@ public class Score : MonoBehaviour {
     public TextMeshProUGUI txt;
     public TextMeshProUGUI cc;
     public Camera cam;
+
+    public static bool newHigh = false;
     // Use this for initialization
     void Start () {
         txt = GetComponent<TextMeshProUGUI>();
@@ -44,6 +46,15 @@ public class Score : MonoBehaviour {
 
                         cam.backgroundColor = Color.cyan;
 
+                        if (score > 6)
+                        {
+                            cam.backgroundColor = Color.magenta;
+                        }
+                        if (score > 8)
+                        {
+                            cam.backgroundColor = Color.yellow;
+                        }
+
                     }
 
                 }
@@ -56,6 +67,9 @@ public class Score : MonoBehaviour {
         if (score >= PlayerPrefs.GetInt("Highscore"))
         {
             cc.text = "Highscore:" + score;
+            newHigh = true;
+
+
 
             PlayerPrefs.SetInt("Highscore", score);
         }

@@ -7,6 +7,7 @@ public class Player : MonoBehaviour {
 
     public float moveSpeed = 600f;
     float movement = 0f;
+    public GameObject scoreScene;
 	// Use this for initialization
 	void Start () {
 		
@@ -26,6 +27,10 @@ public class Player : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        
+        scoreScene.SetActive(true);
+       
+        //This is going to restart script which will be called by the end of the animation.
+        // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

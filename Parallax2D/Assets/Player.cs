@@ -9,6 +9,7 @@ public class Player : MonoBehaviour {
     float movement = 0f;
     public GameObject scoreScene;
     public float longD = 1.5f;
+    
    
     // Use this for initialization
     void Start () {
@@ -42,8 +43,18 @@ public class Player : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
-        scoreScene.SetActive(true);
+        Debug.Log(collision.gameObject.name);
+        if (collision.gameObject.name == "coin(Clone)")
+        {
+            Score.coins += 1;
+            Score.OnSaveCoins();
+            Debug.Log("eu 50");
+            Destroy(collision.gameObject);
+        }
+        else
+        {
+            scoreScene.SetActive(true);
+        }
        
         //This is going to restart script which will be called by the end of the animation.
         // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

@@ -6,7 +6,12 @@ public class Spawner : MonoBehaviour {
 
     public float spawnRate = 2;
 
+    public GameObject coin;
+
     public GameObject hex;
+    public GameObject hex2;
+    public GameObject hex3;
+    public GameObject hex4;
 
     private float nextTimeToSpawn = 0f;
 
@@ -20,8 +25,38 @@ public class Spawner : MonoBehaviour {
 
         if (Time.time >= nextTimeToSpawn)
         {
-            Instantiate(hex, Vector3.zero, Quaternion.identity);
-            nextTimeToSpawn = Time.time + 2f / spawnRate;
+            Instantiate(coin, Vector3.one *Time.time, Quaternion.identity);
+            nextTimeToSpawn = Time.time + 5f / spawnRate;
+            if (Difficulty.difficulty == 0)
+            {
+                Instantiate(hex, Vector3.zero, Quaternion.identity);
+                nextTimeToSpawn = Time.time + 1f / spawnRate;
+            }
+
+            else if (Difficulty.difficulty == 1)
+            {
+                Instantiate(hex, Vector3.zero, Quaternion.identity);
+                nextTimeToSpawn = Time.time + 1f / spawnRate;
+            }else if (Difficulty.difficulty == 2)
+            {
+                Instantiate(hex, Vector3.zero, Quaternion.identity);
+                Instantiate(hex, Vector3.zero, Quaternion.identity);
+                nextTimeToSpawn = Time.time + 1f / spawnRate;
+            }
+            else if (Difficulty.difficulty == 3)
+            {
+                Instantiate(hex, Vector3.zero, Quaternion.identity);
+                Instantiate(hex, Vector3.zero, Quaternion.identity);
+                Instantiate(hex, Vector3.zero, Quaternion.identity);
+                nextTimeToSpawn = Time.time + 1f / spawnRate;
+            }
+            else if (Difficulty.difficulty == 4)
+            {
+                Instantiate(hex, Vector3.zero, Quaternion.identity);
+                Instantiate(hex, Vector3.zero, Quaternion.identity);
+                Instantiate(hex, Vector3.zero, Quaternion.identity);
+                nextTimeToSpawn = Time.time + .8f / spawnRate;
+            }
         }
 		
 	}

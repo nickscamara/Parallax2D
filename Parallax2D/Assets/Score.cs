@@ -7,27 +7,33 @@ using TMPro;
 public class Score : MonoBehaviour {
 
     public static int score = 0;
+    public static int coins = 0;
     public TextMeshProUGUI txt;
     public TextMeshProUGUI cc;
     public Camera cam;
-
+    public TextMeshProUGUI coinss;
     public static bool newHigh = false;
     // Use this for initialization
     void Start () {
         txt = GetComponent<TextMeshProUGUI>();
         
         cc.text = "Highscore: "+ PlayerPrefs.GetInt("Highscore").ToString();
+        coinss.text = "Coins: " + PlayerPrefs.GetInt("Coins").ToString();
         Debug.Log(cc.text);
-	}
+        Debug.Log(coinss.text);
+    }
 	
 	// Update is called once per frame
 	void Update () {
         txt.text = "" + score;
+        coinss.text = "Coins: " + PlayerPrefs.GetInt("Coins");
 
-       
-      
+        
 
-       
+
+
+
+
 
 
         if (score > 1)
@@ -74,4 +80,9 @@ public class Score : MonoBehaviour {
             PlayerPrefs.SetInt("Highscore", score);
         }
 	}
+
+    public static void OnSaveCoins()
+    {
+        PlayerPrefs.SetInt("Coins", coins);
+    }
 }

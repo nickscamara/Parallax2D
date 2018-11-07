@@ -13,6 +13,7 @@ public class ScoreShow : MonoBehaviour
     public TextMeshProUGUI txt;
     public TextMeshProUGUI cc;
     public TextMeshProUGUI nameH;
+    public TextMeshProUGUI coinS;
     public GameObject gg;
     public InputField input;
 
@@ -29,10 +30,12 @@ public class ScoreShow : MonoBehaviour
 
        }
 
+        coinS.text = PlayerPrefs.GetInt("Coins").ToString();
+
         txt.text = Score.score.ToString();
 
         cc.text = PlayerPrefs.GetInt("Highscore").ToString();
-        nameH.text = PlayerPrefs.GetString("name").ToString() + "'s";
+       // nameH.text = PlayerPrefs.GetString("name").ToString() + "'s";
     }
 
     private void ScoreBoard()
